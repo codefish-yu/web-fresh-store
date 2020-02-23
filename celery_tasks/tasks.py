@@ -72,14 +72,14 @@ def generate_static_index_html():
                }
 
     #使用模板
-    #1. 加载模板文件,使用django_templates模块
+    #1. 使用django_templates模块加载templates文件夹下的static_index.html模板文件
     temp = loader.get_template('static_index.html')
     #2. 渲染模板
     static_index_html = temp.render(context)
 
     #生成首页对应的静态文件
     #1. 设置生成文件的路径:是生成在celery任务这里的static文件夹下(腾讯云)
-    save_path = os.path.join(settings.BASE_DIR,'static/index1.html')
+    save_path = os.path.join(settings.BASE_DIR,'static/static_index.html')
     #2. 生成文件
     with open(save_path,'w') as f:
         f.write(static_index_html)
